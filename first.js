@@ -1,1 +1,2 @@
-document.writeln("Hello World");
+//document.writeln("Hello World");
+alert("Hello World");
