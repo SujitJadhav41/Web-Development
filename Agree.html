@@ -1,1 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swarajya Agro - शेतीची खरी साथ</title>
+    <meta name="description" content="Swarajya Agro provides high-quality agricultural inputs and services, including fertilizers, pesticides, seeds, and farm consultation, with a commitment to sustainability and community support.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        :root {
+            --primary-green: #2e7d32;
+            --secondary-purple: #6a1b9a;
+            --light-green: #4caf50;
+            --lighter-green: #e8f5e9;
+            --white: #ffffff;
+            --gray: #f4f4f4;
+            --dark-gray: #333;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--box-shadow);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        header img.logo {
+            max-width: 80px;
+            height: auto;
+        }
+
+        .header-text {
+            text-align: left;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        header p.tagline {
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        /* Mobile menu button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--secondary-purple);
+            padding: 0.5rem 1rem;
+            position: sticky;
+            top: 70px;
+            z-index: 999;
+            box-shadow: var(--box-shadow);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 0.5rem;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.5rem;
+            display: block;
+            transition: var(--transition);
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover {
+            color: var(--light-green);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1500595046743-ee4f3ed0355f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 5rem 1rem;
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--light-green);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+        }
+
+        .cta-button:hover {
+            background: var(--secondary-purple);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid var(--white);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--white);
+            color: var(--primary-green);
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            color: var(--primary-green);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background: var(--secondary-purple);
+            bottom: -10px;
+            left: 20%;
+        }
+
+        /* Featured Products/Services */
+        .featured, .about, .products, .contact, .blog {
+            background: var(--gray);
+            margin: 2rem auto;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .product-grid, .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card, .blog-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .product-card:hover, .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .product-card img, .blog-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-card:hover img, .blog-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-card h3, .blog-card h3 {
+            color: var(--secondary-purple);
+            margin: 0.5rem 0;
+            font-size: 1.3rem;
+        }
+
+        .product-card p, .blog-card p {
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        /* About Us */
+        .about-content {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .about-content h3 {
+            color: var(--secondary-purple);
+            margin: 1.5rem 0 0.5rem;
+        }
+
+        .about-content ul {
+            list-style-position: inside;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Form */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .contact-info {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .contact-info h3 {
+            color: var(--secondary-purple);
+            margin-bottom: 1rem;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .contact-icon {
+            background: var(--light-green);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact form label {
+            margin: 0.5rem 0 0.2rem;
+            font-weight: bold;
+        }
+
+        .contact form input, .contact form textarea, .contact form select {
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .contact form input:focus, .contact form textarea:focus, .contact form select:focus {
+            outline: none;
+            border-color: var(--light-green);
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+        }
+
+        .contact form button {
+            background: var(--light-green);
+            color: var(--white);
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .contact form button:hover {
+            background: var(--secondary-purple);
+        }
+
+        /* Map */
+        .map {
+            margin-top: 3rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .map h3 {
+            text-align: center;
+            color: var(--secondary-purple);
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-green);
+            color: var(--white);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 2px;
+            background: var(--light-green);
+            bottom: -5px;
+            left: 0;
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background: var(--light-green);
+            transform: translateY(-3px);
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--secondary-purple);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-green);
+            transform: translateY(-5px);
+        }
+
+        /* Mobile-First Responsive Design */
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+            
+            .logo-container {
+                margin-bottom: 0.5rem;
+            }
+            
+            .header-text {
+                text-align: center;
+            }
+            
+            header h1 {
+                font-size: 1.3rem;
+            }
+            
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            nav {
+                top: 0;
+                padding: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+            
+            nav.active {
+                max-height: 500px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            section {
+                padding: 2rem 1rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-section h3:after {
+                left: 25%;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <!-- Updated with your provided logo: Save the uploaded image as 'logo.png' in the same folder as this HTML file. 
+                 The logo features a green circular emblem with a crown, leaf, and fields, and orange Hindi text "स्वराज्य ॲग्रो". 
+                 If you prefer to embed it directly (for portability), convert the image to base64 and replace the src with 'data:image/png;base64,[base64-string]'. -->
+            <img src="logo.png" alt="Swarajya Agro Logo" class="logo">
+            <div class="header-text">
+                <h1>स्वराज्य ॲग्रो (Swarajya Agro)</h1>
+                <p class="tagline">शेतीची खरी साथ – स्वराज्य ॲग्रो 🌾💜</p>
+            </div>
+        </div>
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Navigation -->
+    <nav id="mainNav">
+        <ul>
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#about"><i class="fas fa-info-circle"></i> About Us</a></li>
+            <li><a href="#products"><i class="fas fa-seedling"></i> Products & Services</a></li>
+            <li><a href="#contact"><i class="fas fa-phone"></i> Contact</a></li>
+            <li><a href="#blog"><i class="fas fa-blog"></i> Blog</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content fade-in">
+            <h2>Empowering Farmers with Quality and Innovation</h2>
+            <p>Discover premium agricultural inputs and expert services to boost your farm's productivity.</p>
+            <div class="cta-buttons">
+                <a href="#products" class="cta-button">
+                    <i class="fas fa-shopping-cart"></i> Order Now
+                </a>
+                <a href="#contact" class="cta-button secondary">
+                    <i class="fas fa-tractor"></i> Request Farm Visit
+                </a>
+                <a href="https://wa.me/918329650205" class="cta-button">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products/Services -->
+    <section id="featured" class="featured">
+        <div class="section-header">
+            <h2>Our Top Products & Services</h2>
+        </div>
+        <div class="product-grid">
+            <div class="product-card fade-in delay-1">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1592982537447-6f34a1256d77?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Fertilizers">
+                </div>
+                <h3>Fertilizers</h3>
+                <p>High-quality fertilizers to enhance soil fertility and crop yield.</p>
+                <a href="#contact" class="cta-button">Inquire Now</a>
+            </div>
+            <div class="product-card fade-in delay-1">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1589872756-3424df7b38e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pesticides">
+                </div>
+                <h3>Pesticides</h3>
+                <p>Effective solutions to protect your crops from pests and diseases.</p>
+                <a href="#contact" class="cta-button">Inquire Now</a>
+            </div>
+            <div class="product-card fade-in delay-2">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Seeds">
+                </div>
+                <h3>Seeds</h3>
+                <p>Premium seeds for high-yield and resilient crops.</p>
+                <a href="#contact" class="cta-button">Inquire Now</a>
+            </div>
+            <div class="product-card fade-in delay-2">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Farm Consultation">
+                </div>
+                <h3>Farm Consultation</h3>
+                <p>Expert advice to optimize your farming practices.</p>
+                <a href="#contact" class="cta-button">Request Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Snapshot -->
+    <section id="about" class="about">
+        <div class="section-header">
+            <h2>About Swarajya Agro</h2>
+        </div>
+        <div class="about-content fade-in">
+            <p>We are dedicated to empowering farmers in Rosa, Domgaon, and surrounding areas with top-quality agricultural inputs and services. Our mission is to promote sustainable farming and community welfare.</p>
+            <h3>Our Vision & Mission</h3>
+            <p>To support farmers with innovative solutions and sustainable practices for a prosperous future.</p>
+            <h3>Our Values</h3>
+            <ul>
+                <li><strong>Quality:</strong> Providing only the best products and services.</li>
+                <li><strong>Integrity:</strong> Transparent and honest dealings.</li>
+                <li><strong>Innovation:</strong> Embracing modern farming techniques.</li>
+                <li><strong>Community:</strong> Supporting local farmers and workers.</li>
+            </ul>
+            <h3>Social Responsibility</h3>
+            <p>We donate 5% of our profits to support orphan care and agricultural workers, ensuring a positive impact on our community.</p>
+            <p><strong>Udyam Registration:</strong> UDYAM-MH-24-0076371</p>
+            <p><strong>Shop Act Registration:</strong> Receipt Number: 2541800320373461 | Application ID: 108744042503</p>
+        </div>
+    </section>
+
+    <!-- Products & Services -->
+    <section id="products" class="products">
+        <div class="section-header">
+            <h2>Products & Services</h2>
+        </div>
+        <div class="product-grid">
+            <div class="product-card fade-in">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1592982537447-6f34a1256d77?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Fertilizers">
+                </div>
+                <h3>Fertilizers</h3>
+                <p>Explore our range of organic and chemical fertilizers designed for various crops.</p>
+                <a href="#contact" class="cta-button">Add to Quote</a>
+            </div>
+            <div class="product-card fade-in delay-1">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1589872756-3424df7b38e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Pesticides">
+                </div>
+                <h3>Pesticides</h3>
+                <p>Safe and effective pest control solutions for healthier crops.</p>
+                <a href="#contact" class="cta-button">Add to Quote</a>
+            </div>
+            <div class="product-card fade-in delay-1">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Seeds">
+                </div>
+                <h3>Seeds</h3>
+                <p>High-quality seeds for better yield and resilience.</p>
+                <a href="#contact" class="cta-button">Add to Quote</a>
+            </div>
+            <div class="product-card fade-in delay-2">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1622746076859-3a54d7163f3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Drip Irrigation">
+                </div>
+                <h3>Drip Irrigation Systems</h3>
+                <p>Efficient irrigation solutions to save water and boost productivity.</p>
+                <a href="#contact" class="cta-button">Add to Quote</a>
+            </div>
+            <div class="product-card fade-in delay-2">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1586771107445-d3ca888129ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Farm Advisory">
+                </div>
+                <h3>Farm Advisory Services</h3>
+                <p>Personalized consultation to improve farming techniques and yields.</p>
+                <a href="#contact" class="cta-button">Request Now</a>
+            </div>
+            <div class="product-card fade-in delay-3">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1560493676-04071c5f467b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Delivery">
+                </div>
+                <h3>Doorstep Delivery</h3>
+                <p>Convenient delivery of products directly to your farm.</p>
+                <a href="#contact" class="cta-button">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us -->
+    <section id="contact" class="contact">
+        <div class="section-header">
+            <h2>Contact Us</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info fade-in">
+                <h3>Get In Touch</h3>
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <p><strong>Phone:</strong> +91 83296 50205</p>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div>
+                        <p><strong>WhatsApp:</strong> <a href="https://wa.me/918329650205" style="color: var(--secondary-purple);">+91 83296 50205</a></p>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <p><strong>Email:</strong> <a href="mailto:js.swarajya@gmail.com" style="color: var(--secondary-purple);">js.swarajya@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <p><strong>Address:</strong> Rosa, Domgaon, Maharashtra</p>
+                    </div>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/swarajya_agro_js/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.twitter.com" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://wa.me/918329650205" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="contact-form fade-in delay-1">
+                <h3>Send Us a Message</h3>
+                <form id="inquiryForm">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email">
+                    
+                    <label for="product">Product/Service Interest</label>
+                    <select id="product" name="product">
+                        <option value="">Select an option</option>
+                        <option value="fertilizers">Fertilizers</option>
+                        <option value="pesticides">Pesticides</option>
+                        <option value="seeds">Seeds</option>
+                        <option value="irrigation">Drip Irrigation</option>
+                        <option value="consultation">Farm Consultation</option>
+                        <option value="other">Other</option>
+                    </select>
+                    
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                    
+                    <button type="submit">Submit Inquiry</button>
+                </form>
+            </div>
+        </div>
+        <div class="map fade-in delay-2">
+            <h3>Our Location - Rosa</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3812.58!2d75.412111915316!3d18.301134196032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDE4JzA0LjEiTiA3NMKwMjQnNDMuNiJF!5e0!3m2!1sen!2sin!4v1726650000000!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="section-header">
+            <h2>Blog & Farming Tips</h2>
+        </div>
+        <div class="blog-grid">
+            <div class="blog-card fade-in">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1620749330236-92e2cdf32b41?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Farming Tips">
+                </div>
+                <h3>Top 5 Farming Tips for the Monsoon</h3>
+                <p>Learn how to protect your crops during the rainy season.</p>
+                <a href="#" class="cta-button">Read More</a>
+            </div>
+            <div class="blog-card fade-in delay-1">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1593006631152-50e175ceefc2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Organic Farming">
+                </div>
+                <h3>Why Choose Organic Fertilizers?</h3>
+                <p>Discover the benefits of organic farming for sustainable yields.</p>
+                <a href="#" class="cta-button">Read More</a>
+            </div>
+            <div class="blog-card fade-in delay-2">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1629655148006-3c9ec41c51ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="Crop Rotation">
+                </div>
+                <h3>Crop Rotation Strategies</h3>
+                <p>Maximize your soil health with effective crop rotation techniques.</p>
+                <a href="#" class="cta-button">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Swarajya Agro</h3>
+                <p>शेतीची खरी साथ – स्वराज्य ॲग्रो</p>
+                <p>Empowering farmers with quality agricultural inputs and services.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Rosa, Domgaon, Maharashtra</p>
+                <p><i class="fas fa-phone"></i> +91 83296 50205</p>
+                <p><i class="fas fa-envelope"></i> js.swarajya@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="#products" style="color: white;">Products</a></p>
+                <p><a href="#about" style="color: white;">About Us</a></p>
+                <p><a href="#contact" style="color: white;">Contact</a></p>
+                <p><a href="#blog" style="color: white;">Blog</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Swarajya Agro. All rights reserved.</p>
+            <p>Udyam Registration: UDYAM-MH-24-0076371</p>
+            <p>Shop Act Registration: Receipt No. 2541800320373461 | Application ID: 108744042503</p>
+            <p>5% of our profits support orphan care and agricultural workers.</p>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        
+        menuToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if (mainNav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a[href^="#"], .cta-button[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                mainNav.classList.remove('active');
+                const icon = menuToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form submission (placeholder - integrate with backend for real use)
+        document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Collect form data
+            const formData = new FormData(this);
+            // For demo: Alert submission
+            alert('Thank you for your inquiry! We will get back to you soon via email or phone.');
+            this.reset();
+            // In production: Send to server, e.g., fetch('/submit', {method: 'POST', body: formData})
+        });
+
+        // Fade-in on scroll (using Intersection Observer for better performance)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
